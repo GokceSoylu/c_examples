@@ -1,6 +1,6 @@
 /* geldik en sevdiğim bellek sınıfına "static". static için bu kelime ozellikle kulllanılarak tanımlama yapılmalı, yani oyle global zaten externdir aman efendim fonk içinde tanımlanan zaten autodur, static te yazmıyayım olmaaz:))
-ilk deger ataması yapılmamışsa =0 olur. static snıfı için bellekte ayırılan yer program çaliştiği surece korunur bu yuzden bi fonksiyon içinde kulla
-nıldugunda fonksiyon dursa dahi deger saklanır. --staticler olmez-- ;))*/
+ilk deger ataması yapılmamışsa =0 olur. static snıfı için bellekte ayırılan yer program çaliştiği surece korunur ve sadece bir kez ilk deger atamasi yapilir bu yuzden bi fonksiyon içinde kullanildiiğiinda
+fonksiyon dursa dahi deger saklanır. --staticler olmez-- ;) */
 #include <stdio.h>//hadi fonksiyonumuzun kaç kez çaliştigiini ogerenelim 
 #include <string.h>
 int kare (int);
@@ -21,7 +21,7 @@ int main()
 }
 int kare(int a)
 {
-    static int sayac=0;//işte kral burada :))
+    static int sayac=0;//işte kral burada :)
     sayac++;
     printf("\nfonsiyon %d kez calişti",sayac);
     return a*a;
