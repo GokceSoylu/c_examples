@@ -1,5 +1,5 @@
 /*fonksiyonlarda sadece static ve extern bekllek siniflari kullanılabilir. belirtilmediği durumalrda fonksiyonlar için bellek sınıfı externdir.
-ve aynı dosyada olamsı kosulu ile baska programlarda da tanınır bildiğin extern işte. static yaparsak tabii tanınmaz*/
+ve aynı dosyada olamsı kosulu ile baska programlarda da tanınır bildiğin extern işte. static yaparsak tanınmaz*/
 #include <stdio.h>
 int toplama(int , int);
 int carpma(int, int);
