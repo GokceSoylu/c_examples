@@ -1,6 +1,7 @@
 /* extern bellek sınıfnda bir degisken tanımlamak için tum fonksiyonların dışına yazmalıyız. extern tipii bir degisken tanımlandıktan sonra gelen tum fonksiyonlar 
 tarafından tanınır, öncekiler tanımaz. extern sınıfı degisken için programın çalışma suresi boyuca bellekte yer ayırılır. fonksiyonların dısına yazılan
-degiskenler için default bellek sınıfı extern dir ooo o zmn global? evet evet extern dir:). extern bellek sınıfında ilk deger ataması yapılmassa=0 kabul edilir.*/
+degiskenler için default bellek sınıfı extern dir ooo o zmn global? evet evet extern dir:). extern bellek sınıfında ilk deger ataması yapılmassa=0 kabul edilir.
+birde extern nin dosya arası aktarması gibi bir ozelligi var(LAB1 soru2_1 soru2_2 dosyalarıyla denenebilir) */
 #include <stdio.h>
 int a,b;
 int toplama (int, int);
