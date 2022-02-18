@@ -1,6 +1,6 @@
 /* normal main fonksiyonun içine yazdığımız int b; ifadesi ve auto int b; ifadesi aynıdır, c de auto default bellek sınıfıdır.
-auto degiskenimizin tanımlı oldugu aralıga girdiiginde onun için bellekte otamatik yer ayırır outo sozcugu buradan gelir:)
-tanımlı ooldugu aralıktan cıkınca ise degiskenimiz tanımsız olur. ek bilgi global ve parametre degiskenleri auto ozellıgı alamaz extern.c de bu durum acıklanıyor:)*/
+auto degiskenimizin tanımlı oldugu aralıga girdiiginde onun için bellekte otamatik yer ayırır outo sozcugu buradan gelir:) tanımlı ooldugu aralıktan
+cıkınca ise degiskenimiz tanımsız olur. ek bilgi global ve parametre degiskenleri auto ozellıgı alamaz extern.c de bu durum acıklanıyor:) ilk deger ataması yapılmamıssa deger kestirilemez*/
 #include <stdio.h>
 #include <stdlib.h>
 int fonk (int);
