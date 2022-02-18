@@ -1,0 +1,1 @@
+/* geldik en sevdiğim bellek sınıfına "static". static iiçn bu kelime ozellikle kulllanılarak tanımlama yapılmalı, yani oyle global zaten externdir aman efendim fonk içinde tanımlanan zaten autodur, static te yazmıyayım olmaaz:))
