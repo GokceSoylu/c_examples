@@ -1,4 +1,4 @@
-/*rakamları toplamı kendisini veren satı 145=1!+4!+5! kolay soru;) */
+/*rakamlarının faktoriyelleri toplamı kendisini veren satı 145=1!+4!+5! kolay soru;) */
 #include <stdio.h>
 int faktoriyel(int);
 int main()
