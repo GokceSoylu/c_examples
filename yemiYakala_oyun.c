@@ -43,11 +43,10 @@ int motor(char labirent [][22])
         }
         printf("\n");
     }
-    while(1) //!!!!!!!!!!!!!!!!!!!!!!
+    while(1) 
     {
         def=0;
-        adım=getchar();
-        //scanf("%c",&adım);
+        scanf("%c",&adım);
         old_i=i;
         old_j=j;
         switch(adım)
