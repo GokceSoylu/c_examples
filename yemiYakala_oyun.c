@@ -13,6 +13,7 @@ int main()
             if(motor(matris_3)==1)
                 printf("\nTEBRIKLER! KAZANDINIZ!\nSEN BIR DAHISIN");
         
+    return 0;
 }
 int motor(char labirent [][22])
 {
