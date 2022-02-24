@@ -2,8 +2,8 @@
 #include <stdio.h>//bunu game of life oyununu yazabilmek icin yazdım. bu onun indirgenmiş hali.
 #include <stdlib.h>
 #include <time.h>
-#define satir 4
-#define sutun 4
+#define satir 10
+#define sutun 10
 int main()
 {
     int ada[satir][sutun],dizi[satir*sutun]={0},kabile[satir*sutun]={0},i,j,k=0,m=0,max,min;
