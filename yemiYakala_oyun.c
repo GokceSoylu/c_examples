@@ -3,7 +3,7 @@
 #include <time.h>
 char matris_1[12][22]={{"XXXXXXXXXXXXXXXXXXXXXX"},{"X                    X"},{"X                    X"},{"X                    X"},{"X                    X"},{"X                    X"},{"X                    X"},{"X                    X"},{"X                    X"},{"X                    X"},{"X                    X"},{"XXXXXXXXXXXXXXXXXXXXXX"}};
 char matris_2[12][22]={{"XXXXXXXXXXXXXXXXXXXXXX"},{"X                    X"},{"X                    X"},{"X    XXXXXXXXXXX X XXX"},{"X              X  XXXX"},{"XXXX     XX    X     X"},{"XXXX     XX    X     X"},{"X              X  XXXX"},{"X    XXXXXXXXXXX X XXX"},{"X                    X"},{"X                    X"},{"XXXXXXXXXXXXXXXXXXXXXX"}};
-char matris_3[12][22]={{"XXXXXXXXXXXXXXXXXXXXXX"},{"X  X                 X"},{"X  X                 X"},{"X  X  X   XXXXXXXXXXXX"},{"X  X  X               "},{"X  X  XXXXXXXX       X"},{"X  X  X  X            "},{"X     X  X     XXXXXXX"},{"X     X    X          "},{"XXXX  X    X         X"},{"X     X    X         X"},{"XXXXXXXXXXXXXXXXXXXXXX"}};
+char matris_3[12][22]={{"XXXXXXXXXXXXXXXXXXXXXX"},{"X  X                 X"},{"X  X                 X"},{"X  X  X   XXXXXXXXXXXX"},{"X  X  X              X"},{"X  X  XXXXXXXX      X"},{"X  X  X  X           X"},{"X     X  X     XXXXXXX"},{"X     X    X         X"},{"XXXX  X    X        X"},{"X     X    X        X"},{"XXXXXXXXXXXXXXXXXXXXXX"}};
 int motor (char[][22]);
 int main()
 {
@@ -27,7 +27,7 @@ int motor(char labirent [][22])
     {
         x=rand()%12;
         y=rand()%22;
-        if(labirent[x][y]!='x' && labirent[x][y]!=tas)
+        if(labirent[x][y]!='X' && labirent[x][y]!=tas)
         {
             labirent[x][y]='*';
             break;
