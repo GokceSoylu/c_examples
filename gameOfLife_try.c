@@ -1,4 +1,4 @@
-/* game of life (proje2 from canerozcan.net) oyununu yazabilmek için denem amaçlı yazdım*/
+/* game of life (proje2 from canerozcan.net) oyununu yazabilmek için deneme amaçlı yazdım*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
