@@ -125,4 +125,5 @@ void tarama(int matris[][sutun], int i,int j)
             else
                 yedek[i][j]='-';
         }    
+       
 }
