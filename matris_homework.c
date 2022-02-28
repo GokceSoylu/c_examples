@@ -3,8 +3,8 @@ girilen 3x3 boyutlu filtre matrisi tarafından kenar elemanları hariç taranip 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define m 7
-#define n 7
+#define m 5
+#define n 5
 int matris_output[n-4][m-4];
 int tarama (int matris[][m],int i,int j,int filtre[][3]);
 int main()
@@ -46,6 +46,7 @@ int main()
 int tarama (int matris[][m],int i,int j,int filtre[][3])
 {
     int k,l,sum=0;
+    static int counter=0;
     for(k=0;k<3;k++)
     {
         for(l=0;l<3;l++)
@@ -53,11 +54,12 @@ int tarama (int matris[][m],int i,int j,int filtre[][3])
             sum+=matris[i+k][i+l]*filtre[k][l];
         }
     }
-    matris_output[i][j]=sum;//NOT SURE!
+    matris_output[(counter-j)/n][counter-i*n]=sum;//NOT SURE!
+    counter++;
     if(j<m-4)
         return tarama(matris,i,j+1,filtre);
     else if(i<n-4)
-        return (matris,i+1,1,filtre);
+        return tarama(matris,i+1,1,filtre);
     else
         return 0;
 }
