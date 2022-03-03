@@ -47,12 +47,8 @@ int tarama (int matris[][m],int i,int j,int filtre[][3])
 {
     int k,l,sum=0;
     for(k=0;k<3;k++)
-    {
         for(l=0;l<3;l++)
-        {
             sum+=matris[i+k][j+l]*filtre[k][l];
-        }
-    }
     matris_output[i-1][j-1]=sum;
     if(j<m-4)
         return tarama(matris,i,j+1,filtre);
