@@ -25,7 +25,7 @@ int main()
     {
         for(j=0;j<m;j++)
         {
-            matris[i][j]=rand()%251;//!!! buaryı 251 yapalım !!!
+            matris[i][j]=rand()%251;
             printf(" %d ",matris[i][j]);
         }
         printf("\n");

@@ -16,9 +16,7 @@ int f(int dizi[],int x)
     {
         
         if(max<dizi[x])
-        {
             max=dizi[x];
-        }
         return f(dizi,x-1);
     }
 }

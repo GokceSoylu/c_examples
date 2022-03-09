@@ -1,5 +1,5 @@
 /* nxm filtreli bir matrisi degerelri klavyeden girilen 3x4 boyutlu bir filtre matris tarafindan taranıp degerler bir outpu matrise atanir */
-#include <stdio.h>//filtre matrisi yazdiramiyoruz
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #define n 7
@@ -19,11 +19,11 @@ int main()
             scanf("%d",&filtre[i][j]);
         }
     }
-    printf("*n\nfiltre matris: ");
+    printf("\nfiltre matris: \n");
     for(i=0;i<3;i++)
     {
         for(j=0;j<3;j++)
-            printf("%d",filtre[i][j]);
+            printf("%d ",filtre[i][j]);
         printf("\n");
     }
     printf("\n\ntaranacak matris\n");
@@ -31,7 +31,7 @@ int main()
     {
         for(j=0;j<m;j++)
         {
-            matris[i][j]=rand()%25;//!!!!!!
+            matris[i][j]=rand()%251;
             printf("%d  ",matris[i][j]);
         }
         printf("\n");

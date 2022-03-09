@@ -4,7 +4,9 @@
 int faktoriyel (int );
 int main()
 {
-    int n=5;
+    int n;
+    printf("\nfaktoriyelini ogrenmek istediginiz sayıyı giriniz lutfen ");
+    scanf("%d",&n);
     printf("%d",faktoriyel(n));
     return 0;
 }
