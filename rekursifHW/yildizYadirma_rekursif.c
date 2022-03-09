@@ -1,4 +1,4 @@
-/* rekuursif ornegi */
+/* rekursif ornegi */
 #include <stdio.h>
 int sayi(int, int);
 int yildiz(int);
