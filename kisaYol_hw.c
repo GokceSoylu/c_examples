@@ -1,4 +1,4 @@
-/* en kısa yolu bukna c programı ;) */
+/* en kısa yolu bulan c programı ;) */
 #include <stdio.h>
 void yolcu (int [][12],int,int,int);//!!!!! NOT WORK !!!!!!
 int main()
