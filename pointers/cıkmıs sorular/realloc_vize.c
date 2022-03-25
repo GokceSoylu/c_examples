@@ -15,5 +15,6 @@ int main()
     }
     for(n=i;n>-1;n--)
         printf(" %d",p[n]);
+    free(p);
     return 0;
 }

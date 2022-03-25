@@ -28,5 +28,6 @@ int main()
         sum-=7;    
     }
     printf("%s",p);
+    free(p);
     return 0;
 }
