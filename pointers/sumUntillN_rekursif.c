@@ -1,7 +1,7 @@
 /* 1 den N e kadar olan sayıların toplammını bulan rekursif fonksiyon */
 #include <stdio.h>
 #include <stdlib.h>
-void f(int*,int);
+int f(int*,int);
 int main()
 {
     int n,sum=0;
@@ -11,13 +11,11 @@ int main()
     printf("toplam = %d",sum);
     return 0;
 }
-void f(int *p,int a)
+int f(int *p,int a)
 {
     int i;
     if(a==0)
-        return;
+        return a;
     else
-        i=a;
-        *p+=i;
-        f(p,a-1);
-}//bom!
+        *p=f(p,a-1)+a;
+}
