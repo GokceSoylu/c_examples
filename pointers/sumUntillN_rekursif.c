@@ -17,5 +17,7 @@ int f(int *p,int a)
     if(a==0)
         return a;
     else
-        *p=f(p,a-1)+a;
+        i=a;
+        *p+=i;
+        f(p,a-1);
 }
