@@ -17,19 +17,19 @@ int main()
 }
 void yolcu(int p[][12],int size, int i, int j)//acaba sınır kontrolu yapmıyoruz sınırı asıyor onu mu dert etti?
 {
-    static int yedeki=0, yedekj=0;// i max=5   j max=11
+    static int yedeki=0, yedekj=0;
     if(p[i+1][j]==1 && p[i][j+1]==1)
     {
-        yedeki=i;
-        yedekj=j+1;
+        yedeki=i+1;
+        yedekj=j;
     }
-    if(p[i+1][j]==1)//buradad mesala i yi kontrol ederken sınırı asıyor ve segmnetatoin fault veriyor 
-        yolcu(p,size,i+1,j);
-    else if(p[i][j+1]==1)
+    if(p[i][j+1]==1)
         yolcu(p,size,i,j+1);
-    else if(i!=5 || j!=11 )//buraya tekrar bakabilirsin  
-        yolcu(p,size,yedeki,yedekj);
-    p[i][j]=8;
+    else if(p[i+1][j]==1) 
+        yolcu(p,size,i+1,j);
+    //else
+        //yolcu(p,size,yedeki,yedekj);
+    p[i][j]=5;
     if(i==5 && j==11)
         return;
 }
