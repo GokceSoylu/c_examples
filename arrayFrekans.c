@@ -10,7 +10,7 @@ int main()
             {
                 b[i]++;
                 f(a,&size,j);
-                j--;
+                j--;//key part :)
             }    
     for(i=0;i<size;i++)
         printf("\n%d adet %d bulunmaktadır",b[i]+1,a[i]);
