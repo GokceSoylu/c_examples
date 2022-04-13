@@ -1,17 +1,18 @@
 /* iç içe struct ornegi */
 #include <stdio.h>
-int main()//be cearfull about "&"
+int main()//be cerafull about "&"
 {
+    struct birthDay
+    {
+        int day;
+        int month;
+        int year;
+    };
     struct person
     {
         char name[10];
         int age;
-        struct
-        {
-            int day;
-            int month;
-            int year;
-        }dt;
+        struct birthDay dt;
     };
     struct person a[4];
     int i;
@@ -31,4 +32,4 @@ int main()//be cearfull about "&"
         printf("\n%s %d %d/%d/%d",a[i].name,a[i].age,a[i].dt.day,a[i].dt.month,a[i].dt.year);
     }
     return 0;
-}
+}// :))
