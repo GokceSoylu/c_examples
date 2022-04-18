@@ -11,16 +11,16 @@ int main()
         j=0;
         if(array[i]==0 || array[i-1]=' ')
         {
-            for(j=0;array[i+j!=' ';j++])
+            for(j=0;array[i+j]!=' ';j++)
             {
                 if(array[i+j]==' ') break;
                 ctrl[j]=array[i+j];
             }
         }
-        ctrl[]
+        ctrl[i+j]='\0';
         k=i+j;
         fonk(array,array2,ctrl,&k);
-        i++;
+        i=;
     }
     puts(array2);
     return 0;
@@ -30,7 +30,7 @@ void fonk(char array[], char array2[],char ctrl[], int *k) //arttımak için kul
     int i=0, j;
     while(1)
     {
-        for(i=0;i<strlen(ctrl[i];i++)
+        for(i=0;i<strlen(ctrl[i]);i++)
         {    
             if(array[*k]==ctrl[i])
             {
@@ -39,8 +39,5 @@ void fonk(char array[], char array2[],char ctrl[], int *k) //arttımak için kul
             }
             else break;
         }
-
     }
-    
-
 }
