@@ -27,19 +27,18 @@ int main()
             p=p->next;
         }
         printf("\nname ");
-        gets(p->name);
+        scanf("%s",p->name);
         printf("\nsurname ");
-        gets(p->surname);
+        scanf("%s",p->surname);
         printf("\nstudent ıd ");
         scanf("%d",&p->std_num);
     }
     p->next=NULL;
     p=head;
-    while(p->next!=NULL)
+    while(p!=NULL)
     {
         printf("\n\nname %s\nsurname %s\nstudent number %d",p->name,p->surname,p->std_num);
         p=p->next;
     }
-    printf("\n\nname %s\nsurname %s\nstudent number %d",p->name,p->surname,p->std_num);
     return 0;
 }
