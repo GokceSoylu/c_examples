@@ -3,7 +3,7 @@
 #include <stdlib.h>
 int main()
 {
-    char a[50],array[5][20],*p,*ekle;
+    char a[50],array[5][20],*p,ekle[20];
     int k=0,i,j;
     printf("\nmetni giriniz lutfen ");
     gets(a);
@@ -17,15 +17,14 @@ int main()
     while(p!=NULL);
     for(i=0;i<k;i++)
         printf("%s ",array[i]);
-    for(i=1;i<k;k++)
-    {
-        strcpy(ekle,array[i]);
-        for(j=i-1;j>=0 && strlen(ekle)<strlen(array[j]);j--)
-        {
-            strcpy(array[j+1],array[j]);
-            strcpy(array[j],ekle);
-        }
-    }
+    for(i=0;i<k;i++)
+        for(j=i+1;j<k;j++)
+            if(strlen(array[i])>strlen(array[j]))
+            { 
+                strcpy(ekle,array[j]);
+                strcpy(array[j],array[i]);
+                strcpy(array[i],ekle);
+            }
     printf("\n");
     for(i=0;i<k;i++)
         printf("%s  ",array[i]);
