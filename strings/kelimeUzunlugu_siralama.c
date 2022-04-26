@@ -4,32 +4,29 @@
 #include <stdlib.h>
 int main()
 {
-    char a[50],*p,array[5],tmp;
-    int k=0,i,j;
-    for(i=0;i<5;i++)
-        array=(char*)malloc(5*sizeof(char));
-    gets(a);
-    p=strtok(a," ");
-    array[k]=*p;
-    while(1)
+    char array[50],a[5][10],*p,*ekle;
+    ekle=(char*)malloc(10*sizeof(char));
+    int i,j,n=0;
+    printf("\nmetni giriniz lutfen  ");
+    gets(array);
+    p=strtok(array," ");
+    while(p!=NULL)
     {
+        strcpy(a[n],p);
         p=strtok(NULL," ");
-        if(p==NULL) break;
-        printf("\n%s",p);
-        //k++;
-        //array[k]=*p;
+        n++;
     }
-    //array[k+1]='\0';
-    //printf("\n%s",array);
-    /*for(i=1;i<k;i++)
-    { 
-        tmp=array[i];
-        for(j=i-1;strlen(&array[j])>strlen(&tmp) && j>0;j--)
+    for(i=1;i<n;i++)
+    {
+        strcpy(ekle,a[i]);
+        for(j=i-1;j>=0 && strlen(a[j])>strlen(ekle);j--)
         {
-            array[j+1]=array[j];
-            array[j]=tmp;
+            strcpy(a[j+1],a[j]);
+            strcpy(a[j],ekle);
         }
     }
-    printf("\n%s",array);
-    */return 0;
+    printf("\n");
+    for(i=0;i<n;i++)
+        printf("%s ",a[i]);
+    return 0;
 }
