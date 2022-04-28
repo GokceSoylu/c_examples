@@ -1,4 +1,4 @@
-/* Sadece personelin adını tutacak liste. Soyismi baoşver :)(liste sıralıdır)  */
+/* personelin sadece adını sıralı şekilde tutacak liste. Soyismi boşver :) */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -11,7 +11,7 @@ typedef struct personel prs;
 prs *head, *new, *q, *dlt;
 void search(char s[]);
 void add_node(char s[]);
-prs* delete_node(char s[]);//bunlar slaytta void döndürüyor öyle de deneyelim
+void delete_node(char s[]);
 void show_list(void);
 void longest(void);
 int main()
@@ -33,7 +33,7 @@ int main()
             case 2:
                 printf("\nsilmek istediginiz isim ");
                 scanf("%s",names);
-                head=delete_node(names);
+                delete_node(names);
                 break;
             case 3:
                 show_list();
@@ -70,27 +70,12 @@ void add_node(char s[])
     new->next=q->next;
     q->next=new;
 }
-prs* delete_node(char s[])
+void delete_node(char s[])
 {
-    prs *p;
     search(s);
-    p=q->next;
-    if(q==head)//başı silme
-    {
-        head=head->next;
-        free(q);
-    }
-    else if(p->next==NULL)//sonu silme
-    {
-        q->next=NULL;
-        free(p);
-    }
-    else
-    {
-        q->next=q->next->next;//ortadan silme
-        free(p);
-    }
-    return head;
+    dlt=q->next;
+    q->next=q->next->next;
+    free(dlt);
 }
 void show_list(void)
 {
@@ -109,7 +94,8 @@ void longest(void)
     {
         if(strlen(l->name)<strlen(p->name))
             l=p;
-        p=p->next;// :) akıllılık yapıpta bunu if'ten önce koyayım dersen segmentation fault'u yersin
+        p=p->next;//:) akıllılık yapıpta bunu if'ten önce koyayım dersen segmentation fault'u yersin
     }
     printf("\n%s %lu",l->name,strlen(l->name));
-}
+}// > struct piçindeki pointera değer atamzsan NULL olur
+// > struct taki name bos ise 0 kabul edilir yani strcmp ile bir strinfin farkina bakarsan bos olanı 0 alırsın
