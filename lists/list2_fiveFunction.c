@@ -1,4 +1,4 @@
-/* (liste sıralıdır) Sadece personelin adını tutacak liste. Soyismi baoşver :) */
+/* Sadece personelin adını tutacak liste. Soyismi baoşver :)(liste sıralıdır)  */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -19,8 +19,6 @@ int main()
     char names[20];
     int i,j,process,flag=0;
     head=(prs*)malloc(sizeof(prs));
-    strcpy(head->name,"listenin basi");
-    head->next=NULL;
     while(1)
     {    
         printf("\nyeni personel eklemek icin 1\nsilmek icin 2\npersonel listesini gormek icin 3\nen uzun isimli personeli ogrenmek icin(onemli bir bilgi cünkü:)) 4\ncıkmak icin 5'e basınız ");
@@ -111,7 +109,7 @@ void longest(void)
     {
         if(strlen(l->name)<strlen(p->name))
             l=p;
-        p=p->next;// :) akıllılık yapıp bunu if'ten koyayım dersen segmentation fault'u yersin
+        p=p->next;// :) akıllılık yapıpta bunu if'ten önce koyayım dersen segmentation fault'u yersin
     }
     printf("\n%s %lu",l->name,strlen(l->name));
 }
