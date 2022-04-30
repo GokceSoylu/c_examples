@@ -92,8 +92,7 @@ void longest(void)
     p=l=head;
     while(p!=NULL)
     {
-        if(strlen(l->name)<strlen(p->name))
-            l=p;
+        if(strlen(l->name)<strlen(p->name)) l=p;
         p=p->next;//:) akıllılık yapıpta bunu if'ten önce koyayım dersen segmentation fault'u yersin
     }
     printf("\n%s %lu",l->name,strlen(l->name));

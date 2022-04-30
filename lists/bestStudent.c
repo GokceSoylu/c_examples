@@ -15,10 +15,11 @@ void new_node(void);
 void delete_node(void);
 void show_list(void);
 void search(char[]);
-std *head,*q,*new;
+std *head,*q,*p;
 int main()
 {
     head=(std*)malloc(sizeof(std));
+    p=head;
     int process;
     do
     {
@@ -45,16 +46,19 @@ int main()
 }
 void new_node(void)
 {
-    q=head;
-    new=(std*)malloc(sizeof(std));
-    while(q->next!=NULL) q=q->next;
-    q->next=new;
+    if(p!=head)
+    {
+        p=(std*)malloc(sizeof(std));
+        p=p->next;
+    }
     printf("name ");
-    scanf("%s",new->name);
+    scanf("%s",p->name);
     printf("midterm result ");
-    scanf("%d",&new->mid);
+    scanf("%d",&p->mid);
     printf("final ");
-    scanf("%d",&new->final);//new->next=NULL; demedim zaten boş bıraktığımda NULL atıyor
+    scanf("%d",&p->final);//new->next=NULL; demedim zaten boş bıraktığımda NULL atıyor
+    
+    
 }
 void delete_node(void)
 {
@@ -66,7 +70,7 @@ void delete_node(void)
 }
 void show_list(void)
 {
-    q=head->next;
+    q=head;
     while(q!=NULL)
     {
         printf("\n%s %d %d",q->name,q->mid,q->final);

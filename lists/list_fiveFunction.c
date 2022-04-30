@@ -26,35 +26,23 @@ int main()
         switch(process)
         {
             case 1:
-            {
                 p=new_record(p);
                 break;
-            }
             case 2:
-            {
                 show_list();
                 break;
-            } 
             case 3:
-            {
                 update_list();
                 break;
-            }
             case 4:
-            {
                 head=delete();
                 break;
-            }
             case 5:
-            {
                 best_student();
                 break;
-            }
             case 6:
-            {
                 average();
                 break;
-            } 
             case 7:
                 flag=1;
         }
