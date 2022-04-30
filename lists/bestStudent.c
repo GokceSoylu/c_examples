@@ -46,19 +46,14 @@ int main()
 }
 void new_node(void)
 {
-    if(p!=head)
-    {
-        p=(std*)malloc(sizeof(std));
-        p=p->next;
-    }
     printf("name ");
     scanf("%s",p->name);
     printf("midterm result ");
     scanf("%d",&p->mid);
     printf("final ");
     scanf("%d",&p->final);//new->next=NULL; demedim zaten boş bıraktığımda NULL atıyor
-    
-    
+    p=p->next;
+    p=(std*)malloc(sizeof(std));
 }
 void delete_node(void)
 {
