@@ -96,5 +96,5 @@ void longest(void)
         p=p->next;//:) akıllılık yapıpta bunu if'ten önce koyayım dersen segmentation fault'u yersin
     }
     printf("\n%s %lu",l->name,strlen(l->name));
-}// > struct piçindeki pointera değer atamzsan NULL olur
+}// > struct içindeki pointera değer atamzsan NULL olur
 // > struct taki name bos ise 0 kabul edilir yani strcmp ile bir strinfin farkina bakarsan bos olanı 0 alırsın
