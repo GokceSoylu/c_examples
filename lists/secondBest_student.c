@@ -44,7 +44,7 @@ int main()
                 break;
         }
     } while (process!=5);
-    
+    return 0;
 }
 void new_node()
 {
