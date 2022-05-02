@@ -75,7 +75,7 @@ void search(char names[])
 {
     std *p;
     q=p=head;
-    while(strcmp(p->name,names)!=0) 
+    while(strcmp(p->name,names)!=0 && q->next!=NULL) 
     {
         q=p; 
         p=p->next;
