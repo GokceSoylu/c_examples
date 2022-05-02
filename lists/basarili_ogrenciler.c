@@ -1,5 +1,5 @@
-/* ortalamsı ortalamadan yüksek ola öğrencileri yazdıran fonksiyonu yazınız. Liste alfetik sırada olmalıdır */
-#include <stdio.h>
+/* ortalamsı ortalamadan yüksek ola öğrencileri yazdıran fonksiyonu yazınız.*/
+#include <stdio.h>//kopya çekmek istersen; bu klavyeden girme sırasına göre kaydediyor, list2_fiveFunction.c alfabetik sıraya göre ;))
 #include <string.h>
 #include <stdlib.h>
 struct student
@@ -40,7 +40,7 @@ int main()
                 success_std();
                 break;
         }
-    } while (process!=5);
+    }while (process!=5);
     return 0;
 }
 void new_node(void)
@@ -75,8 +75,9 @@ void search(char names[])
 {
     std *p;
     q=p=head;
-    while(strcmp(q->name,names)!=0)
+    while(q->next!=NULL)
     {
+        if(strcmp(p->name,names)==0) break;
         q=p;
         p=p->next;
     }

@@ -1,4 +1,4 @@
-/* personelin sadece adını sıralı şekilde tutacak liste. Soyismi boşver :) */
+/* personelin sadece adını, sıralı şekilde tutacak liste. Soyismi boşver :) */
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -55,11 +55,11 @@ void search(char s[])
 {
     prs *p;
     p=q=head;
-    while(p->next!=NULL)
+    while(p!=NULL)
     {
-        p=p->next;
         if(strcmp(p->name,s)>=0) break;
         q=p;
+        p=p->next;
     }
 }
 void add_node(char s[])
@@ -67,7 +67,7 @@ void add_node(char s[])
     new=(prs*)malloc(sizeof(prs));
     strcpy(new->name,s);
     search(new->name);
-    new->next=q->next;
+    new->next=q->next;//q->next'in içeriğini tutar
     q->next=new;
 }
 void delete_node(char s[])
