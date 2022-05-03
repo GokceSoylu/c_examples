@@ -43,9 +43,9 @@ int main()
 void add_node()//alfabetik sırayla kaydederken önce kendine yeni bir eleman açasın sonra bu elemanın içine doldurup searchlersin. 
 {//zaten buradaki muhabbet o önce elemanı oluşturup sonra ben nereye uygunum diye aratıyorsun. aratma bittikten sonrada atamanı yapıyorsun b
     new=(prs*)malloc(sizeof(prs));//bu next mext muhabbetleri aramadan sonra ortaya çıkıyor. --direkt giriş sırasına göre kaydedeceksen de 
-    printf("\nplease enter he name ");//önce kendine kaldığın yerden eleman açarsın p->next=malloc olayı sonra p=p->next yaparın yani direkt kaydedeceğin yere 
-    scanf("%s",new->name);//gelirsin değerlerini girdiğinde de kayıt tamamlanmış olur. searccle falan uğraşmazsın || şu net farkı unutmayalım > sıra için yeni elamanı
-    search(new->name);//kaydedip yerini ara, klasik için direkt yerini hazırlayıp kaydetip bitir :) not easy😅
+    printf("\nplease enter he name ");//önce kendine kaldığın yerden eleman açarsın p->next=malloc olayı sonra p=p->next yaparsın yani direkt kaydedeceğin yere 
+    scanf("%s",new->name);//gelirsin değerlerini girdiğinde de kayıt tamamlanmış olur. search'le falan uğraşmazsın || şu net farkı unutmayalım > sıra için yeni elamanı
+    search(new->name);//kaydedip yerini ara, klasik için direkt yerini hazırlayıp kaydet, bitir :) not easy😅
     new->next=q->next;
     q->next=new;
 }

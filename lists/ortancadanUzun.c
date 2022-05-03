@@ -90,12 +90,11 @@ int numberOf_list(void)
 {
     int counter=0,m;
     q=head;
-    while(q!=NULL)
+    while(q->next!=NULL)
     {
         counter++;
         q=q->next;
     }
-    counter--;
     return counter;
 }
 prs* median(void)
