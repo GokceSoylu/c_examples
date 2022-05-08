@@ -1,4 +1,4 @@
-/* ortalamsı ortalamadan yüksek ola öğrencileri yazdıran fonksiyonu yazınız.*/
+/* ortalamsı ortalamadan yüksek ola öğrencileri yazdıran ve ortalaması ortalamadan düşük olan öğrencileri listeden silen fonksiyonları yazınız.*/
 #include <stdio.h>//kopya çekmek istersen; bu klavyeden girme sırasına göre kaydediyor, list2_fiveFunction.c alfabetik sıraya göre ;))
 #include <string.h>
 #include <stdlib.h>
@@ -11,19 +11,22 @@ struct student
 typedef struct student std;
 std *head, *q, *p, *dlt;
 void new_node(void);
-void delete_node(void);
+void delete_node(char[]);
 void search(char[]);
 void show_list(void);
 float avarege(std*);
+float avaregeOf_class(void);
 void success_std(void);
+void delete_fails(void);
 int main()
 {
     int process;
+    char  names[20];
     head=(std*)malloc(sizeof(std));
     p=head;
     do
     {
-        printf("\nnew student 1\nshow list 2\ndelete student 3\nsuccesfull students 4\nexit 5  ");
+        printf("\nnew student 1\nshow list 2\ndelete student 3\nsuccesfull students 4\ndelete fail students 5\nexit 6  ");
         scanf("%d",&process);
         switch(process)
         {
@@ -34,13 +37,18 @@ int main()
                 show_list();
                 break;
             case 3:
-                delete_node();
+                printf("\nplease enter the name you want to delete ");
+                scanf("%s",names);
+                delete_node(names);
                 break;
             case 4:
                 success_std();
                 break;
+            case 5:
+                delete_fails();
+                break;
         }
-    }while (process!=5);
+    }while (process!=6);
     return 0;
 }
 void new_node(void)
@@ -61,11 +69,9 @@ void show_list(void)
         q=q->next;
     }
 }
-void delete_node(void)
+void delete_node(char names[])
 {
-    char names[20];
-    printf("\nplease enter the name you want to delete ");
-    scanf("%s",names);
+    
     search(names);
     dlt=q->next;
     q->next=q->next->next;
@@ -88,8 +94,22 @@ float avarege(std *p)
 }
 void success_std(void)
 {   
+    std *p;
+    float avr;
+    avr=avaregeOf_class();
+    printf("\navarege of the class %f",avr);
+    p=head;
+    while(p!=NULL)
+    {
+        if(avr<=avarege(p))
+            printf("\n%s %f",p->name,avarege(p));
+        p=p->next;
+    }
+}
+float avaregeOf_class(void)
+{
     std *p=head;
-    float sum=0,avr;
+    float sum=0;
     int counter=0;
     while(p!=NULL)
     {
@@ -98,13 +118,16 @@ void success_std(void)
         counter++;
     }
     counter--;
-    avr=(float)sum/counter;
-    printf("\navarege of the class %f",avr);
-    p=head;
+    return ((float)sum/counter);
+}
+void delete_fails(void)
+{
+    std *p=head;
+    float avr=avaregeOf_class();
     while(p!=NULL)
     {
-        if(avr<=avarege(p))
-            printf("\n%s %f",p->name,avarege(p));
+        if(avr>avarege(p))
+            delete_node(p->name);
         p=p->next;
     }
 }
