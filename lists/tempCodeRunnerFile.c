@@ -1,1 +1,1 @@
-p=(std*)malloc(sizeof(std));
+*/
