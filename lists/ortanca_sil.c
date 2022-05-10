@@ -109,8 +109,7 @@ void delete_median(void)
     if(m%2!=0) m=m/2+1;
     else m=m/2;
     q=head;
-    for(i=0;i<m;i++)
-        q=q->next;
+    for(i=0;i<m;i++) q=q->next;
     delete_node(q->name);
 }
 void deleteAdd_median(void)
@@ -121,8 +120,7 @@ void deleteAdd_median(void)
     if(m%2!=0) m=m/2+1;
     else m=m/2;
     q=head;
-    for(i=0;i<m;i++)
-        q=q->next;
+    for(i=0;i<m;i++) q=q->next;
     p=q;
     delete_node(q->name);
     p->next=head->next;
@@ -136,15 +134,13 @@ void deleteAdd_median2(void)
     if(m%2!=0) m=m/2+1;
     else m=m/2;
     q=head;
-    for(i=0;i<m;i++)
-        q=q->next;
+    for(i=0;i<m;i++) q=q->next;
     p=pp=q;
     delete_node(q->name);
     p->next=head->next;
     head->next=p;
     q=head;
-    while(q->next!=NULL)
-        q=q->next;    
+    while(q->next!=NULL) q=q->next;
     q->next=pp;
     pp->next=NULL;
 }
