@@ -142,5 +142,5 @@ void deleteAdd_median2(void)
     q=head;
     while(q->next!=NULL) q=q->next;
     q->next=pp;
-    pp->next=NULL;
+    pp->next=NULL;//ilk elemanın next'ine NULL atıyor. Ama nedeeen🤯
 }
