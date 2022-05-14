@@ -16,7 +16,7 @@ void search(char s[]);
 int numberOf_list(void);
 void deleteAdd_median(void);//listenin ortanca elemanını kesip başa ekler
 void delete_median(void);//listenin ortanca elemanını siler
-void deleteAdd_median2(void);//listenin ortanca elemanını siler başa ve sona ekler
+cty* find_last(cty *head);
 int main()
 {
     head=(cty*)malloc(sizeof(cty));
@@ -25,7 +25,7 @@ int main()
     char s[20];
     do
     {
-        printf("\nadd_node 1\nshow list 2\ndelete city 3\ndelete median city and add it beginning 4\ndelete median city and add it beginning and lastd 5\nelete median city 6\nnnumber pf city 7\nexit 8  ");
+        printf("\nadd_node 1\nshow list 2\ndelete city 3\ndelete median city and add it beginning 4\nelete median city 5\nnnumber pf city 6\nexit 7  ");
         scanf("%d",&process);
         switch(process)
         {
@@ -46,16 +46,13 @@ int main()
                 deleteAdd_median();
                 break;
             case 5:
-                deleteAdd_median2();
-                break;
-            case 6:
                 delete_median();
                 break;
-            case 7:
+            case 6:
                 printf("%d",numberOf_list());
                 break;
         }
-    } while (process!=8);
+    } while (process!=7);
     return 0;
 }
 void add_node(char s[])
@@ -126,21 +123,9 @@ void deleteAdd_median(void)
     p->next=head->next;
     head->next=p;
 }
-void deleteAdd_median2(void)
+cty* find_last(cty *head)
 {
-    int i, m;
-    cty *p=(cty*)malloc(sizeof(cty)),*pp=(cty*)malloc(sizeof(cty));
-    m=numberOf_list();
-    if(m%2!=0) m=m/2+1;
-    else m=m/2;
-    q=head;
-    for(i=0;i<m;i++) q=q->next;
-    p=pp=q;
-    delete_node(q->name);
-    p->next=head->next;
-    head->next=p;
-    q=head;
-    while(q->next!=NULL) q=q->next;
-    q->next=pp;
-    pp->next=NULL;//ilk elemanın next'ine NULL atıyor. Ama nedeeen🤯
+    cty *p=head;
+    while(p->next!=NULL) p=p->next;
+    return p;
 }
