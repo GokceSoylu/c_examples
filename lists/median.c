@@ -28,8 +28,10 @@ int main()
             p=p->next;
             p->number=n;
         }
+        
         else break;
     }
+    p->next=NULL;
     show_list(head->next);
     head=f(head->next);
     show_list(head);
@@ -39,14 +41,16 @@ num* f(num *head)
 {
     num *p, *first, *last, *q;
     p=find_median(head);
-    first=last=p->next;
+    first=p->next;
+    last=p->next;
     p->next=p->next->next;
-    free(p->next);
     first->next=head;
     head=first;
+    printf("%d",head->next->number);
     q=find_last(head);
-    q->next=last;
-    last->next=NULL;
+    //q->next=last;
+    //q->next->next=NULL;
+    printf("%d",head->next->number);
     return head;
 }
 num* find_median(num* head)
@@ -54,7 +58,7 @@ num* find_median(num* head)
     int n, i;
     num *p=head;
     n=numberOf_list(head);
-    n=n/2-1;//ortancadan bir önceki elemanı bulmak istiyorum.
+    n=n/2;//ortancadan bir önceki elemanı bulmak istiyorum.
     for(i=1;i<n;i++) p=p->next;
     return p;
 }
@@ -62,6 +66,7 @@ num* find_last(num *head)
 {
     num *p=head;
     while(p->next!=NULL) p=p->next;
+    
     return p;
 }
 int numberOf_list(num *head)
