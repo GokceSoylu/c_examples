@@ -8,7 +8,7 @@ int main()
     while(!feof(p))
     {
         fscanf(p,"%d%d%f",&a,&b,&c);
-        printf("\n%d\n%d\n%f",a,b,c);
+        printf("\n%d\n%d\n%.2f",a,b,c);
     }    
     fclose(p);
     return 0;
