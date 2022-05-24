@@ -10,34 +10,37 @@ struct hotel
 };
 typedef struct hotel hotel;
 int menu(void);
-void delete(hotel*);
-void upload(hotel *);
-void write_file(hotel *);
-void show_clients(hotel *);
-int debt(hotel*);
-int payment(hotel *);
-void show_gap(hotel*);
+void scanf_info(hotel*);
+void delete(FILE*);
+void upload(FILE *);
+void write_file(FILE *);
+void show_clients(FILE *);
+int debt(FILE*);
+int payment(FILE *);
+void show_gap(FILE *);
 int main()
 {
-    hotel *p, *pp, client;
-    int selection, x;
+    hotel client;
+    FILE *pp, *p;
+    int selection, x=1;
     printf("dosyayı olusturmak icin 1\nvar olan dosyayı kullanmak icin 2 giriniz lütfen.  ");
     scanf("%d",&selection);
     if(selection==1)
     {
         pp=fopen("hotel_room","w+");
-        printf("\noda numarasi, isim, soyisi, yapilan odeme mikari, kalınacak gun sayisi, oda tipi (a, b, c)");
-        while(1)
+        while(x==1)
         {
-            scanf("%d%s%s%d%d%c",&client.room, client.name, client.surname, &client.payment, &client.day, &client.room_tip);//😅
-            if(feof(stdin)) break;
+            scanf_info(&client);
             fseek(pp,(client.room-1)*sizeof(hotel),SEEK_SET);
             fwrite(&client,sizeof(hotel),1,pp);
+            printf("devam etmek icin 1 giriniz");
+            scanf("%d",&x);
         }
         fclose(pp);
     }    
     p=fopen("hotel_room","r+");
-    while((selection=menu())!=9)
+    selection=menu();
+    while(selection!=9)
     {
         switch(selection)
         {
@@ -47,7 +50,7 @@ int main()
                 printf("oda numarasını giriniz  ");
                 scanf("%d",&x);
                 fseek(p,(x-1)*sizeof(hotel),SEEK_SET);
-                payment(p);
+                x=payment(p);
                 printf("\ntoplsm tutuar = %d",x); break;
             case 3:
                 printf("oda numarasını giriniz lütfen ");
@@ -70,8 +73,7 @@ int main()
             case 8:
                 write_file(p); break;
         }
-        printf("\n?  ");
-        scanf("%d",&selection);
+       selection=menu();
     }
     fclose(p);
     return 0;
@@ -79,11 +81,11 @@ int main()
 int menu(void)
 {
     int selection;
-    printf("\nmusteri listesi 1\nödeme miktarı hesabı 2\nkalan borc miktarı 3\nbos odalar 4\noda numarasıyla arama 5\nmusteri silme 6\nbilgi guncelleme 7\ntext dosyaasına yazdırma 8   ");
+    printf("\n\nmusteri listesi 1\nödeme miktarı hesabı 2\nkalan borc miktarı 3\nbos odalar 4\noda numarasıyla arama 5\nmusteri silme 6\nbilgi guncelleme 7\ntext dosyaasına yazdırma 8\ncikis 9  ");
     scanf("%d",&selection);
     return selection; 
 }
-void delete(hotel *p)
+void delete(FILE *p)
 {
     int x;
     hotel gap_room={0," "," ",0,0,' '};
@@ -92,7 +94,7 @@ void delete(hotel *p)
     fseek(p,(x-1)*sizeof(hotel),SEEK_SET);
     fwrite(&gap_room,sizeof(hotel),1,p);
 }
-void upload(hotel *p)
+void upload(FILE *p)
 {
     int money, x;
     hotel client;
@@ -102,53 +104,55 @@ void upload(hotel *p)
     printf("\nodeme mikatrındaki degisikligi giriniz (-), (+) ");
     scanf("%d",&money);
     fread(&client,sizeof(hotel),1,p);
-    client.payment=+money;
+    client.payment=client.payment+money;
     fseek(p,(x-1)*sizeof(hotel),SEEK_SET);
     fwrite(&client,sizeof(hotel),1,p);
 }
-void write_file(hotel *p)
+void write_file(FILE *p)
 {
     hotel client;
-    FILE *pp;
+    FILE *text;
     rewind(p);
-    fopen("hotel_text","w");
+    text=fopen("hotel_text","w");
     while(!feof(p))
     {
         fread(&client,sizeof(hotel),1,p);
-        fprintf(pp,"\noda no:%d  %s %s odeme:%d  gun:%d  oda tipi:%c",client.room, client.name, client.surname, client.payment, client.day, client.room_tip);
+        if(client.room!=0) 
+            fprintf(text,"\noda no%d   isim:%s  soy isim:%s   odeme:%d   gun:%d   oda tipi:%c",client.room, client.name, client.surname, client.payment, client.day, client.room_tip);
     }
-    fclose(pp);
+    fclose(text);
 }
-void show_clients(hotel *p)
+void show_clients(FILE *p)
 {
     hotel client;
     rewind(p);
     while(!feof(p))
     {
         fread(&client,sizeof(hotel),1,p);
-        printf("\noda no:%d  %s %s  odeme:%d   gun:%d   oda tipi:%c",client.room, client.name, client.surname, client.payment, client.day, client.room_tip);
+        if(client.room!=0)
+            printf("\noda no:%d  %s %s  odeme:%d   gun:%d   oda tipi:%c",client.room, client.name, client.surname, client.payment, client.day, client.room_tip);
     }
 }
-int debt(hotel *p)
+int debt(FILE *p)
 {
     int x;
     hotel client;
     x=payment(p);
     fseek(p,-1*sizeof(hotel),SEEK_CUR);
     fread(&client,sizeof(hotel),1,p);
-    x=-client.payment;
+    x=x-client.payment;
     return x;
 }
-int payment(hotel *p)
+int payment(FILE *p)
 {
     int x;
     hotel client;
     fread(&client,sizeof(hotel),1,p);
-    if((strcmp('a',&client.room_tip))==0) return 1000*client.day;
-    if((strcmp('b',&client.room_tip))==0) return 700*client.day;
-    if((strcmp('c',&client.room_tip))==0) return 400*client.day;
+    if((strcmp("a",&client.room_tip))==0) return (1000*client.day);
+    if((strcmp("b",&client.room_tip))==0) return (700*client.day);
+    if((strcmp("c",&client.room_tip))==0) return (400*client.day);
 }
-void show_gap(hotel *p)
+void show_gap(FILE *p)
 {
     hotel client;
     int counter=1;
@@ -156,7 +160,17 @@ void show_gap(hotel *p)
     while(!feof(p))
     {
         fread(&client,sizeof(hotel),1,p);
-        if(client.room==0) printf("\n%d.oda. tip:%c ",counter,client.room_tip);
+        if(client.room==0) printf("\n%d.oda",counter);
         counter++;
     }
+}
+void scanf_info(hotel *client)
+{
+    char a;
+    printf("\noda numarası  "); scanf("%d",&client->room);
+    printf("\noda tipi  "); scanf("%c",&a); scanf("%c",&client->room_tip);
+    printf("\nadı  "); scanf("%s",client->name);
+    printf("\nsoy ad  "); scanf("\n%s",client->surname);
+    printf("\ngun sayısı  "); scanf("%d",&client->day);
+    printf("yapılan odeme mikatrı  "); scanf("%d",&client->payment);
 }
