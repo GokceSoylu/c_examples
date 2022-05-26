@@ -1,8 +1,8 @@
 /* hasta dosyasında icinde kullanıcıdan alınan harf bulunan isimleri yazdıran fonksiyon :) */
-#include <stdio.h>
-#include <string.h>
-struct patient//  NOT!!! buradaki struct'da herhengi bir yanlışlık yaparsan kod patlar. Unutmayınız rastgele erişimli dosyada byte'a göre 
-{//okuyor eğer byte'a değişiklik olursa anlamsız bir hale gelir. 
+#include <stdio.h>//  NOT!!! buradaki struct'da herhengi bir yanlışlık yaparsan kod patlar. Unutmayınız rastgele erişimli dosyada byte'a göre 
+#include <string.h>//okuyor eğer byte'a değişiklik olursa anlamsız bir hale gelir.
+struct patient
+{ 
     char name[20], semptom[50];
     int age;
 };
