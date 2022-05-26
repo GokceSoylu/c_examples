@@ -12,7 +12,7 @@ int main()
 {
     pat patient;
     int x=1;
-    p=fopen("hatsa","w");
+    p=fopen("hasta","w");
     while(x==1)
     {
         fscanf_pat(&patient);

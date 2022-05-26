@@ -19,7 +19,7 @@ int main()
     int n;
     head=(num*)malloc(sizeof(num));
     p=head;
-    printf("lşstenin elemanlarını giriniz\ndurdurmak icin -1 giriniz\n");
+    printf("listenin elemanlarını giriniz\ndurdurmak icin -1 giriniz\n");
     while(1)
     {
         scanf("%d",&n);
