@@ -7,6 +7,7 @@ struct number
     struct number *next;
 };
 typedef struct number num;
+num *head;
 num* f(num *head);//şeref konuğumuz
 num* find_median(num *head);
 num* find_last(num *head);
@@ -14,7 +15,7 @@ int numberOf_list(num *head);
 void show_list(num *head);
 int main()
 {
-    num *head, *p;
+    num *p;
     int n;
     head=(num*)malloc(sizeof(num));
     p=head;
@@ -42,15 +43,14 @@ num* f(num *head)
     num *p, *first, *last, *q;
     p=find_median(head);
     first=p->next;
-    last=p->next;
+    last=(num*)malloc(sizeof(num));
+    last->number=p->next->number;
     p->next=p->next->next;
     first->next=head;
     head=first;
-    printf("%d",head->next->number);
     q=find_last(head);
-    //q->next=last;
-    //q->next->next=NULL;
-    printf("%d",head->next->number);
+    q->next=last;
+    last->next=NULL;
     return head;
 }
 num* find_median(num* head)
