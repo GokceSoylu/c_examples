@@ -43,9 +43,9 @@ num* f(num *head)
     num *p, *first, *last, *q;
     p=find_median(head);
     first=p->next;
-    last=(num*)malloc(sizeof(num));
-    last->number=p->next->number;
-    p->next=p->next->next;
+    last=(num*)malloc(sizeof(num));//ortancayı kesip basa ekledin daha sonra bunu kopylayıp sona eklemen gerekir. kopya demek malloc demek.
+    last->number=p->next->number;//şimdi anladın mı farkı hafizadan yer açmassan(malloc kullnmazsan) pointer olduğu için adres tutar ve değişikliklerden etkilenir
+    p->next=p->next->next;//ama hafızadan yer alırsan kopyalar :))
     first->next=head;
     head=first;
     q=find_last(head);
