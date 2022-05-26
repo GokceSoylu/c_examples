@@ -32,7 +32,7 @@ int main()
         else break;
     }
     p->next=NULL;
-    show_list(head->next);
+    show_list(head->next);  
     head=f(head->next);
     show_list(head);
     return 0;

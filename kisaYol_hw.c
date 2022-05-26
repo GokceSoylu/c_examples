@@ -24,12 +24,17 @@ void yolcu(int p[][12],int size, int i, int j)//acaba sınır kontrolu yapmıyor
         yedekj=j;
     }
     if(p[i][j+1]==1)
+    {
+        p[i][j]=5;
         yolcu(p,size,i,j+1);
+    }    
     else if(p[i+1][j]==1) 
-        yolcu(p,size,i+1,j);
+    {
+       p[i][j]=5;
+       yolcu(p,size,i+1,j);
+    }    
     //else
         //yolcu(p,size,yedeki,yedekj);
-    p[i][j]=5;
     if(i==5 && j==11)
         return;
 }
