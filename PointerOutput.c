@@ -11,9 +11,10 @@ int main()
     printf("\noutput2 : %d",(m+2));//&a+28√
     m=&a[4];
     k=&m;
-    printf("\noutput3 : %d",*(*(k)-1));//4 vayy m[3]=4 yaptık yukarda
+    printf("\noutput3 : %d",*(*(k)-1));//4 vayy m[3]=4 yaptık yukarıda
     printf("\noutput4 : %d",*k);//&a+16√
     m=m-2;
     printf("\noutput5 : %d",*k);//&a+8√
     return 0;
 }//bu sınavda nasıl çözulur :( yandık
+//edit: sınavda çıktı. çözdüm😁
