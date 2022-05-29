@@ -37,6 +37,7 @@ int main()
             else if(ada[i][j]==0)
                 k++;
         }
+        k++;
     }
     for(i=0;i<k;i++)
     {
