@@ -14,9 +14,9 @@ int main()
 {
     int devam;
     devam=level_1();
-    if(devam==0)
+    if(devam==1)
         devam=level_2();    
-    if(devam==0)
+    if(devam==1)
         level_3();
     return 0;
 
@@ -74,7 +74,7 @@ int level_1 (void)
         if(yanlis_tahmin==0)
         {
             printf("\nTEBRIKLER tahmininiz dogru\nikinci levele geciyorsunuz");
-            return 0;
+            return 1;
         }    
         else if(yanlis_tahmin!=4)
         {
@@ -89,7 +89,7 @@ int level_1 (void)
     }
     printf("\ndeneme hakkınız doldu\nsaglik olsun");
     printf("\nbilgisayarin tuttugu renkler; %s",renk);
-    return 1;
+    return 0;
        
 }
 int level_2(void)
@@ -114,8 +114,6 @@ int level_2(void)
             case 3:
                 renk1[i]='P';
                 break;
-            default:
-                break;
         }
     }
     //printf("\nbilgisayarin tuttugu renkeler ilk; %s",renk1); //kontrol için
@@ -135,8 +133,6 @@ int level_2(void)
                 break;
             case 3:
                 renk2[i]='P';
-                break;
-            default:
                 break;
         }
     }
@@ -173,7 +169,7 @@ int level_2(void)
         if(yanlis_tahmin1==0 && yanlis_tahmin2==0)
         {
             printf("\nvoov HARIKA tahminleriniz dogru ucuncu levele geciyorsunuz");
-            return 0;
+            return 1;
         }
         else if(yanlis_tahmin1==0 || yanlis_tahmin2==0)
             printf("\nrenk ciflerinden biri dogru");
@@ -183,9 +179,11 @@ int level_2(void)
             printf("\ntoplamda %d tane renk dogru, %d tane renk yanlis",4-(yanlis_tahmin1+yanlis_tahmin2),yanlis_tahmin1+yanlis_tahmin2);
 
     }
-    printf("\nmalesef deneme hakkiniz doldu\nolsun, uzulme buda gecer ;))");
-    printf("\nbilgissayarin belirledigi renkler, %s  %s",renk1,renk2);
-    return 1;
+    printf("\nmalesef deneme hakkiniz doldu\nolsun, uzulme bu da gecer ;))");
+    printf("\nbilgissayarin belirledigi renkler");
+    printf(" %s",renk1);
+    printf("  %s",renk2);
+    return 0;
 }
 int level_3()
 {
@@ -251,7 +249,7 @@ int level_3()
         if(yanlis_tahmin==0)
         {
             printf("\nsiz bir dahisiniz! Tahminlerinizin hepsi dogru\nKAZANDINIZ!");
-            return 0;
+            return 1;
         }
         else if(yanlis_tahmin==4)
             printf("\ndogru tahmin bulunmamaktadir\nyokluk zor sey ;)");
@@ -260,5 +258,5 @@ int level_3()
     }
     printf("\nmalesef deneme hakkiniz doldu\n");
     printf("\ndogru cevap; %s",renk);
-    return 1;
+    return 0;
 }
