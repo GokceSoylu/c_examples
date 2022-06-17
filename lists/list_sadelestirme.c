@@ -21,35 +21,36 @@ int main()
         p=p->next;
         printf("\n?  ");
         scanf("%s",p->name);
-        printf("\n->%s",p->name);
         printf("\ndevam etmek icin 1 giriniz  ");
         scanf("%d",&a);
     }
     p->next=NULL;
     head=head->next;
-    p=head;
-    print_file(p);
+    print_file(head);
     pp=head;
-    p=head;
     q=head;
-    p=p->next;
     while(pp!=NULL)
     {
+        p=pp->next;
         while(p!=NULL)
         {
             if((strcmp_my(p->name,pp->name))==0)
             {
                 dlt=p;
+                p=p->next;
                 q->next=q->next->next;
                 free(dlt);
             }
-            q=p;
-            p=p->next;
+            else
+            {
+                q=p;
+                p=p->next;
+            }
         }
-        q=pp;
         pp=pp->next;
-        p=pp->next;
+        q=pp;
     }
+    printf("\nliste sadelestirildi\n");
     print_file(head);
     return 0;
 }
@@ -67,8 +68,9 @@ int strcmp_my(char *x, char *y)
     }
     return (*x-*y);
 }
-void print_file(std *p)
+void print_file(std *head)
 {
+    std *p=head;
     while(p!=NULL)
     {
         printf("\n%s ",p->name);
