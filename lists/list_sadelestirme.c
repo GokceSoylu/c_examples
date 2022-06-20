@@ -1,4 +1,5 @@
 /* listeyi  oluşturunuz daha sonra bu listede aynı isimli kisileri siliniz. (bir isimden bir tane bulunmalı)*/
+
 #include <stdio.h>
 #include <stdlib.h>
 struct student
