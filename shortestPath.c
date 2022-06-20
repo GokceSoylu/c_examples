@@ -11,7 +11,7 @@ int main()
         printf("\n");
     }
     f_assagi(0,0,m);
-    printf("\n\nen kisa yol bukundu\n\n");
+    printf("\n\nen kisa yol bulundu\n\n");
     for(i=0;i<6;i++)
     {
         for(j=0;j<12;j++)
@@ -20,9 +20,9 @@ int main()
     }
     return 0;
 }
-void f_assagi(int i, int j, int m[][12])//değişse yine tutar mı? analiz için elimizdeki labirentleri kullanalım 
+void f_assagi(int i, int j, int m[][12])//analiz için elimizdeki labirentleri kullanalım 
 {
-    if(i==6 && j==12) return; 
+    if(i==5 && j==11) return; 
     if(m[i+1][j]==1)
         f_assagi(i+1,j,m);
     else if(m[i][j+1]==1)
@@ -36,12 +36,12 @@ void f_assagi(int i, int j, int m[][12])//değişse yine tutar mı? analiz için
 }
 void f_saga(int i, int j, int m[][12])
 {
-    if(i==6 && j==12) return;
+    if(i==5 && j==11) return;
     if(m[i][j+1]==1)
         f_saga(i,j+1,m);
     else if(m[i+1][j]==1)
         f_assagi(i+1,j,m);
-    else //bu da tutmuyorsa?
+    else 
     {
         while(m[i+1][j]!=1) j--;
         f_assagi(i+1,j,m);
