@@ -1,6 +1,6 @@
 /* en kısa yolu bulan c programı ;) */
 #include <stdio.h>
-void yolcu (int [][12],int,int,int);//!!!!! NOT WORK !!!!!!
+void yolcu (int [][12],int,int,int);
 int main()
 {
     int p[6][12]={1,0,1,1,1,0,0,1,0,1,1,0,1,0,1,1,1,1,1,0,1,0,0,0,1,1,1,1,1,1,1,0,1,0,1,0,0,1,0,1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,1,1,0,0,0,1,1,1,1,0,1,1,1,1,1,1,1,1},i,j;
@@ -15,9 +15,11 @@ int main()
     }
     return 0;
 }
-void yolcu(int p[][12],int size, int i, int j)//acaba sınır kontrolu yapmıyoruz sınırı asıyor onu mu dert etti?
+void yolcu(int p[][12],int size, int i, int j)
 {
     static int yedeki=0, yedekj=0;
+    if(i==5 && j==11)
+        return; 
     if(p[i+1][j]==1 && p[i][j+1]==1)
     {
         yedeki=i+1;
@@ -33,8 +35,7 @@ void yolcu(int p[][12],int size, int i, int j)//acaba sınır kontrolu yapmıyor
        p[i][j]=5;
        yolcu(p,size,i+1,j);
     }    
-    //else
-        //yolcu(p,size,yedeki,yedekj);
-    if(i==5 && j==11)
-        return;
+    else
+        yolcu(p,size,yedeki,yedekj);
+    
 }
