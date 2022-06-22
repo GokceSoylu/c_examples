@@ -35,7 +35,7 @@ void down(int i, int j, int m[N][M])
 }
 void right(int i, int j, int m[N][M])
 {
-    if(i== M-1 && j==N-1) return;
+    if(i==N-1 && j==M-1) return;
     if(m[i][j+1]==1) right(i,j+1,m);
     else if(m[i+1][j]==1) down(i+1,j,m);
     else if(m[i-1][j]==1) up(i-1,j,m);
@@ -45,18 +45,18 @@ void right(int i, int j, int m[N][M])
 void left(int i, int j, int m[N][M])
 {
     if(i==N-1 && j==M-1) return;
-    if(m[i][j-1]==1) left(i,j-1,m);
-    else if(m[i+1][j]==1) down(i+1,j,m);
+    if(m[i+1][j]==1) down(i+1,j,m);
     else if(m[i-1][j]==1) up(i-1,j,m);
+    else if(m[i][j-1]==1) left(i,j-1,m);
     else if(m[i][j+1]==1) right(i,j+1,m);
     m[i][j]=2;
 }
 void up(int i, int j, int m[N][M])
 {
     if(i==N-1 && j==M-1) return;
-    if(m[i-1][j]==1) up(i-1,j,m);
-    else if(m[i][j+1]==1) right(i,j+1,m);
+    if(m[i][j+1]==1) right(i,j+1,m);
     else if(m[i][j-1]==1) left(i,j-1,m);
+    else if(m[i-1][j]==1) up(i-1,j,m);
     else if(m[i+1][j]==1) down(i+1,j,m);
     m[i][j]=2;
 }
