@@ -26,4 +26,5 @@ void yolcu(int p[6][12], int i, int j)
     else if(p[i+1][j]==1) yolcu(p,i+1,j);
     else yolcu(p,yedeki,yedekj);
     p[i][j]=5;
-}
+}//Kod doğru ama sılıntılı bir yönü var.
+//ilk yol ayrımı değilde bir önceki doğru olursa BOM! sadece son ayrımını kayıtlı tutuyor.

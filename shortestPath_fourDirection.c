@@ -59,4 +59,5 @@ void up(int i, int j, int m[N][M])
     else if(m[i-1][j]==1) up(i-1,j,m);
     else if(m[i+1][j]==1) down(i+1,j,m);
     m[i][j]=2;
-}
+}//iyi güzel ancak en kısa yolu bulmuyor çıkışı buluyor :))
+//ez cümle her türlü labirentte çıkışı bulur bu yönü güzel ama bulduğu yol en kkısa yol değil:)
