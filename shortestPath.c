@@ -51,7 +51,7 @@ void shortest_path(int matris[][M], int i, int j, int short_way)
         control[i+1][j]=1;
         shortest_path(matris,i+1,j,short_way+1);
     }
-    if(matris[i][j+1]==1 && control[i][j+1]==0)//control matrisi gerçekten önemli mi?
+    if(matris[i][j+1]==1 && control[i][j+1]==0)
     {
         control[i][j+1]=1;
         shortest_path(matris,i,j+1,short_way+1);
