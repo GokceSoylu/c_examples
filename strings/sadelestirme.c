@@ -3,14 +3,16 @@
 #include <stdio.h>
 
 void shifting(char[],int);
-void simplfying(char []);
+void simplifying(char []);
 
 int main()
 {
     int i=0;
     char array[]="5552211221";
     simplifying(array);
+    printf("\n\n");
     puts(array);
+    printf("\n\n");
     return 0;
 }
 
@@ -31,3 +33,6 @@ void shifting(char a[],int i)
     for(;a[i]!='\0';i++)
         a[i]=a[i+1];    
 }
+
+
+
