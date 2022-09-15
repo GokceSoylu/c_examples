@@ -1,31 +1,32 @@
-/* 5552211221 dizisininde arka arkaya tekrar eden elemanları sadeştirir */
+/* Simplifies consecutive elements in array 5552211221 */
 
 #include <stdio.h>
 
-void kaydirma(char[],int);
-void sadelestirme(char []);
+void shifting(char[],int);
+void simplfying(char []);
 
 int main()
 {
     int i=0;
     char array[]="5552211221";
-    sadelestirme(array);
+    simplifying(array);
     puts(array);
     return 0;
 }
 
-void sadelestirme(char array[])
+void simplifying(char array[])
 {
     int i;
     while(array[i]!='\0')
     {
         if(array[i]==array[i+1])
-            kaydirma(array,i);
+            shifting(array,i);
         else
             i++;
     }
 }
-void kaydirma(char a[],int i)
+
+void shifting(char a[],int i)
 {
     for(;a[i]!='\0';i++)
         a[i]=a[i+1];    
