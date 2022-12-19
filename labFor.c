@@ -7,9 +7,9 @@ int main()
         for(j=0;j<7;j++)
             if(j==key)
             {
-                for(m=0;m<i+1;m++)
+                for(m=0;m<=i && j<3 ;m++, j++)
                     printf("%c",65+m);
-                for(m=i-1;m>=0;m--)
+                for(;m>0;m--)
                     printf("%c",65+m);
                 key--;
             }
