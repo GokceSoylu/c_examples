@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-    int i, j, m=1, key=3;  
+    int i, j, m, key=3;  
     for(i=0;i<4;i++)
     {
         for(j=0;j<7;j++)
